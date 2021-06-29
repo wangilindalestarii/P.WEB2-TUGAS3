@@ -19,12 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//
-Route::get('mahasiswa', 'MahasiswaController@index')->name('index.mahasiswa');
+//punya mahasiswa
+Route::get('mahasiswa', 'MahasiswaController@index')->name('mahasiswa');
 Route::get('create-mahasiswa','MahasiswaController@create')->name('create.mahasiswa');
 Route::POST('simpan-mahasiswa','MahasiswaController@store')->name('simpan.mahasiswa');
 
-//
+Route::get('edit-mahasiswa/{id}', 'MahasiswaController@edit')->name('edit.mahasiswa');
+Route::post('update-mahasiswa/{id}', 'MahasiswaController@update')->name('update.mahasiswa');
+Route::get('hapus-mahasiswa/{id}', 'MahasiswaController@destroy')->name('hapus.mahasiswa');
+
+
+//punya makul
 Route::get('makul', 'MakulController@index')->name('makul');
 Route::get('tambah-makul', 'MakulController@create')->name('tambah.makul');
 Route::post('simpan-makul', 'MakulController@store')->name('simpan.makul');

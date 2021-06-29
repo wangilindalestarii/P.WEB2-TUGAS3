@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mahasiswa;
 use Illuminate\Http\Request;
+Use Alert;
+
 
 class MahasiswaController extends Controller
 {
@@ -22,6 +24,28 @@ class MahasiswaController extends Controller
     {
         // dd($request->all());
         Mahasiswa::create($request->all());
-        return redirect()->route('mahasiswa.index');
+        alert()->success('Sukses','Data Berhasil Disimpan');
+        return redirect()->route('mahasiswa');
     }
+    public function edit($id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        return view('edit.mahasiswa', compact('mahasiswa'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->update($request->all());
+        toast('Yeahh Berhasil Mengedit Data','success');
+        return redirect()->route('mahasiswa');
+    }
+    public function destroy($id)
+    {
+        $mahasiswa= Mahasiswa::find($id);
+        $mahasiswa->delete();
+        toast('Yeahh Berhasil Menghapus Data','success');
+        return redirect()->route('mahasiswa');
+    }
+
 }
