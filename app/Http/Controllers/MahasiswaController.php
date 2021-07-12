@@ -11,7 +11,7 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
+        $mahasiswa = Mahasiswa::with(['user'])->get();
         return view('mahasiswa.index', compact('mahasiswa'));
     }
 
@@ -29,8 +29,11 @@ class MahasiswaController extends Controller
     }
     public function edit($id)
     {
+        // dd($id)
         $mahasiswa = Mahasiswa::find($id);
+        // dd($mahasiswa);
         return view('edit.mahasiswa', compact('mahasiswa'));
+        // return view('edit.mahasiswa', compact('mahasiswa'));
     }
 
     public function update(Request $request, $id)

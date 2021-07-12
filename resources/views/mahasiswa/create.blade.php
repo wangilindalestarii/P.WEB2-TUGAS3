@@ -12,8 +12,13 @@
                     @csrf
 
                         <div class="form-group">
+                            <label for="">NPM</label>
+                            <input type="text" name="npm" class="form-control col-md-9" placeholder="Masukkan NPM">
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Nama Lengkap</label>
-                            <input type="text" name="name" class="form-control col-md-9" placeholder="Masukkan Nama">
+                            <input type="text" name="user_id" class="form-control col-md-9" placeholder="Masukkan Nama">
                         </div>
 
                         <div class="form-group">
@@ -42,11 +47,6 @@
                             <option value="laki">Laki-laki</option>
                             <option value="perempuan">Perempuan</option>
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Masukkan Gambar</label>
-                            <input type="file" name="foto" class="form-control col-md-9">
                         </div>
 
                         <button type="submit" class="btn btn-md btn-primary">SIMPAN</button>
