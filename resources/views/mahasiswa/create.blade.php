@@ -18,7 +18,13 @@
 
                         <div class="form-group">
                             <label for="">Nama Lengkap</label>
-                            <input type="text" name="user_id" class="form-control col-md-9" placeholder="Masukkan Nama">
+                            <select name="user_id" class="form-control col-md-9">
+                            <option value="" disabled selected>--Pilih User--</option>
+                            @foreach ($user as $u)
+                            < <option value="{{ $u->id}}" {{ $u->mahasiswa_id == $u->id ? 'selected' : ''}} >{{$u->name }}</option>
+
+                            @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -44,6 +50,7 @@
                         <div class="form-group">
                             <label for="gender">Jenis Kelamin</label>
                             <select name="gender" class="form-control col-md-9">
+                            <option value="" disabled selected>--Pilih Jenis Kelamin</option>
                             <option value="laki">Laki-laki</option>
                             <option value="perempuan">Perempuan</option>
                             </select>
